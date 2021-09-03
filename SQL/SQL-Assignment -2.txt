@@ -1,0 +1,40 @@
+Q1:
+
+SELECT AlbumId, count(TrackId)
+FROM tracks
+GROUP BY AlbumId
+ORDER BY TrackId ASC;
+
+
+Q2:
+
+SELECT a.Title, t.Name
+from albums a
+INNER JOIN tracks t on a.AlbumId=t.AlbumId;
+
+Q3: 
+
+SELECT t.AlbumId, a.Title, min(Milliseconds)
+FROM tracks t
+LEFT JOIN albums a on a.AlbumId=t.AlbumId
+GROUP BY a.AlbumId
+ORDER BY Milliseconds DESC;
+
+Q4:
+
+SELECT t.AlbumId, a.Title, sum(Milliseconds)
+FROM tracks t
+LEFT JOIN albums a on a.AlbumId=t.AlbumId
+GROUP BY a.AlbumId
+ORDER BY sum(Milliseconds) DESC;
+
+Q5:
+
+SELECT Title, albums.AlbumId, sum(Milliseconds) as total_duration
+FROM albums 
+INNER JOIN tracks on albums.AlbumId=tracks.AlbumId
+GROUP By albums.AlbumId
+HAVING 
+	SUM(Milliseconds) > 4200000
+ORDER BY total_duration DESC;
+

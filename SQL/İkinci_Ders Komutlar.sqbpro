@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/ASUS PC/Downloads/chinook.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure pragmas query browser" current="2"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3862"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainalbums"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">SELECT name, Composer
+FROM tracks
+WHERE Composer  like &quot;%Bach%&quot;
+
+SELECT count (name) as şarkı_sayısı
+FROM tracks
+SELECT count(DISTINCT Composer) as digital_music
+FROM tracks;
+SELECT name as isim, min(Milliseconds)as en_az
+FROM tracks;
+SELECT DISTINCT (InvoiceDate)
+FROM invoices;
+SELECT Count(DISTINCT composer) as şarkı
+FROM tracks
+WHERE Milliseconds &gt; (SELECT avg(Milliseconds)
+FROM tracks);
+SELECT name, composer, count(Composer)
+FROM tracks
+GROUP BY Composer;
+SELECT * 
+FROM tracks 
+WHERE Milliseconds &gt; (SELECT avg(Milliseconds)
+FROM tracks);
+FROM tracks;
+SELECT Composer, count(Composer)
+FROM tracks
+GROUP BY Composer
+ORDER by Composer;
+SELECT Country,  count(Country)
+FROM customers
+GROUP BY Country;
+sELECT * 
+FROM customers;
+SELECT AlbumId, min(Milliseconds)
+FROM tracks
+GROUP BY AlbumId;
+SELECT BillingCountry, sum(total)
+FROM invoices
+GROUP BY BillingCountry;
+SELECT tracks.name, genres.Name
+FROM tracks
+INNER JOIN genres on tracks.GenreId=genres.GenreId;
+SELECT invoices.InvoiceId, customers.FirstName, customers.LastName
+FROM invoices
+INNER JOIN customers on invoices.CustomerId = customers.CustomerId
+group by FirstName;
+SLECT *
+FROM customers
+
+
+ </sql><current_tab id="0"/></tab_sql></sqlb_project>

@@ -1,0 +1,47 @@
+Q1:
+
+SELECT InvoiceId, CustomerId, total
+FROM invoices
+GROUP BY total
+ORDER BY CustomerId, total DESC;
+
+
+Q2:
+
+SELECT InvoiceId, CustomerId, total
+FROM invoices
+GROUP BY total
+ORDER BY total DESC, CustomerId;
+
+Q3: In previous query we sorted according to CustomerID in ascending list. so at first the program gives us the customerID in descending and then it compares the total columns.
+if customerId has two or more same number then it compares column of total and it sort them in descending.
+in second wuery we sorted according to total at first than customerID. 
+
+Q4:
+
+SELECT * 
+FROM invoices
+WHERE total>=10 
+LIMIT 10;
+
+Q5:
+
+SELECT * 
+FROM invoices
+WHERE total<10 
+LIMIT 5;
+
+
+Q6:
+
+SELECT *
+FROM tracks
+WHERE Name like "B%s";
+
+Q7:
+
+SELECT *
+FROM invoices
+WHERE BillingCountry="USA" OR BillingCountry="Germany" OR BillingCountry="Canada" AND InvoiceDate=2010
+ORDER BY InvoiceDate DESC;
+
